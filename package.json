@@ -1,0 +1,17 @@
+{
+  "name": "etranslatebot",
+  "version": "1.0.0",
+  "description": "A bot to help translate from english to french and from french to english",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "etiane",
+  "license": "ISC",
+  "dependencies": {
+    "@vitalets/google-translate-api": "^8.0.0",
+    "dotenv": "^16.0.1",
+    "telegraf": "^4.8.2"
+  }
+}
