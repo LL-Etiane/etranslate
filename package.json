@@ -12,6 +12,7 @@
   "dependencies": {
     "@vitalets/google-translate-api": "^8.0.0",
     "dotenv": "^16.0.1",
+    "express": "^4.18.1",
     "telegraf": "^4.8.2"
   }
 }
