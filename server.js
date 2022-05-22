@@ -2,6 +2,7 @@ require("dotenv").config();
 const { Telegraf } = require("telegraf");
 const translate = require("@vitalets/google-translate-api");
 const express = require("express");
+const axios = require("axios").default;
 
 const app = express();
 const bot = new Telegraf(process.env.BOT_TOKEN);
@@ -61,12 +62,16 @@ bot.launch();
 //express server
 app.get("/", (req, res) => {
   res.send("Bot running now");
-  console.log(process.env.BOT_TOKEN);
 });
 
 app.listen(PORT, () => {
   console.log("Server Running");
 });
+
+//set interval for continues polling to ensure bot always up on heroku free accounts
+setInterval(() => {
+  axios.get("https://etranslatebot.herokuapp.com/");
+}, 60000);
 
 // Enable graceful stop
 process.once("SIGINT", () => bot.stop("SIGINT"));
