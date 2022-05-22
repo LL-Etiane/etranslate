@@ -1,8 +1,11 @@
 require("dotenv").config();
 const { Telegraf } = require("telegraf");
 const translate = require("@vitalets/google-translate-api");
+const express = require("express");
 
+const app = express();
 const bot = new Telegraf(process.env.BOT_TOKEN);
+const PORT = process.env.PORT || 4000;
 
 bot.start((ctx) => {
   ctx.reply(
@@ -54,6 +57,16 @@ bot.command("vt", async (ctx) => {
 
 //start the bot
 bot.launch();
+
+//express server
+app.get("/", (req, res) => {
+  res.send("Bot running now");
+  console.log(process.env.BOT_TOKEN);
+});
+
+app.listen(PORT, () => {
+  console.log("Server Running");
+});
 
 // Enable graceful stop
 process.once("SIGINT", () => bot.stop("SIGINT"));
