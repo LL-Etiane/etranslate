@@ -1,3 +1,4 @@
+require("dotenv").config()
 const { Telegraf } = require("telegraf");
 const translate = require("@vitalets/google-translate-api");
 const express = require("express");
