@@ -1,10 +1,10 @@
-require("dotenv").config();
 const { Telegraf } = require("telegraf");
 const translate = require("@vitalets/google-translate-api");
 const express = require("express");
 const axios = require("axios").default;
 
 const app = express();
+
 const bot = new Telegraf(process.env.BOT_TOKEN);
 const PORT = process.env.PORT || 4000;
 
