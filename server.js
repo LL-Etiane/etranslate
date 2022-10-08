@@ -68,10 +68,6 @@ app.listen(PORT, () => {
   console.log("Server Running");
 });
 
-//set interval for continues polling to ensure bot always up on heroku free accounts
-setInterval(() => {
-  axios.get("https://etranslatebot.herokuapp.com/");
-}, 600000);
 
 // Enable graceful stop
 process.once("SIGINT", () => bot.stop("SIGINT"));
